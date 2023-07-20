@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\LoggedController;
 use App\Http\Controllers\ProfileController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +22,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/', [MainController :: class, 'index'])
-    -> name("home");
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -33,3 +34,24 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+//mie rotte
+
+Route::get('/', [GuestController :: class, 'index'])
+    -> name("guest.index");
+
+ // route for logged
+
+Route::get('logged/show/{id}', [LoggedController :: class, 'show'])
+    -> middleware('auth')
+    -> name("logged.show");
+
+// Route::middleware('auth')
+//     -> name('logged.')
+//     -> prefix('logged')
+//     -> group(function (){
+//         Route :: get('show/{id}', [LoggedController :: class, 'show'])
+//             -> name('show');
+//     });
+
+

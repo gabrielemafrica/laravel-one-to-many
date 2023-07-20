@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 use App\Models\Project;
 
-class MainController extends Controller
+class GuestController extends Controller
 {
     public function index() {
 
         $projects = Project :: all();
 
-        return view("index", compact('projects'));
+        return view("guest.index", compact('projects'));
     }
 }

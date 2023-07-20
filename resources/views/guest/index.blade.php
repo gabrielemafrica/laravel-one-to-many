@@ -9,7 +9,7 @@
                     <div class="border border-primary py-4">
                         {{ $project->nome }}
                         <br>
-                        <a href="{{ route('show', $project->id) }}" class="btn btn-info">SHOW</a>
+                        <a href="{{ route('logged.show', $project->id) }}" class="btn btn-info">SHOW</a>
 
                     </div>
                 </li>
