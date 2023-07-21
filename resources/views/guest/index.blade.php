@@ -2,18 +2,30 @@
 
 @section('content')
     <main class="container text-center py-5">
-        <h1>I MIEI PROGETTI</h1>
-        <ul class="list-unstyled d-flex flex-wrap gap-3 justify-content-center">
-            @foreach ($projects as $project)
-                <li class="mt-3 w-25">
-                    <div class="border border-primary py-4">
-                        {{ $project->nome }}
-                        <br>
-                        <a href="{{ route('logged.show', $project->id) }}" class="btn btn-info">SHOW</a>
+        <div class="row">
+            <div class="col-12">
+                <h1>I MIEI PROGETTI</h1>
+            </div>
+        </div>
+        <div class="row">
 
+            @foreach ($projects as $project)
+                <div class="col-3 mb-4">
+                    <div class="card text-center">
+                        <div class="card-header">
+                            {{ $project->type }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ $project->nome }}</h5>
+                            <p class="card-text">{{ $project->description }}</p>
+                            <a href="{{ route('logged.show', $project->id) }}" class="btn btn-info text-light">SHOW</a>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            {{ $project->data }}
+                        </div>
                     </div>
-                </li>
+                </div>
             @endforeach
-        </ul>
+        </div>
     </main>
 @endsection

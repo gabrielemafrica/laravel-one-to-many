@@ -2,20 +2,24 @@
 
 @section('content')
     <main class="container text-center py-5">
-        <h1 class="text-success"><u> {{ $project->nome }} </u></h1>
 
-        <div class="text-danger"> descrizione: </div>
-        <div class="container text-info bg-secondary w-50 mb-3"> {{ $project->descrizione }} </div>
-        <div class="text-danger"> type: </div>
-        <div class="container text-info bg-secondary w-50 mb-3"> {{ $project->type }} </div>
-        <div class="text-danger"> tecnology: </div>
-        <div class="container text-info bg-secondary w-50 mb-3"> {{ $project->tecnology }} </div>
-        <div class="text-danger"> link: </div>
-        <div class="container text-info bg-secondary w-50 mb-3"> {{ $project->link }} </div>
-        <div class="text-danger"> project:->repo </div>
-        <div class="container text-info bg-secondary w-50 mb-3"> {{ $project->repo }} </div>
-        <div class="text-danger"> $project:->data </div>
-        <div class="container text-info bg-secondary w-50 mb-3"> {{ $project->data }} </div>
+        <div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">
+            <div class="card-header">{{ $project->nome }}</div>
+            <div class="card-body">
+                <h5 class="card-title"> descrizione: </h5>
+                <p class="card-text">{{ $project->descrizione }}</p>
+                <h5 class="card-title"> type: </h5>
+                <p class="card-text">{{ $project->type }}</p>
+                <h5 class="card-title"> tecnology: </h5>
+                <p class="card-text">{{ $project->tecnology }}</p>
+                <h5 class="card-title"> link: </h5>
+                <p class="card-text">{{ $project->link }}</p>
+                <h5 class="card-title"> repo: </h5>
+                <p class="card-text">{{ $project->repo }}</p>
+                <h5 class="card-title"> data: </h5>
+                <p class="card-text">{{ $project->data }}</p>
+            </div>
+        </div>
 
     </main>
 @endsection
