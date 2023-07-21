@@ -14,4 +14,8 @@ class GuestController extends Controller
 
         return view("guest.index", compact('projects'));
     }
+    public function message() {
+
+        return view("guest.message");
+    }
 }

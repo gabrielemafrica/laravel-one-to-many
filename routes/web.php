@@ -40,6 +40,9 @@ require __DIR__.'/auth.php';
 Route::get('/', [GuestController :: class, 'index'])
     -> name("guest.index");
 
+Route::get('guest/message', [GuestController :: class, 'message'])
+    -> name("guest.message");
+
  // route for logged
 
 Route::get('logged/show/{id}', [LoggedController :: class, 'show'])
