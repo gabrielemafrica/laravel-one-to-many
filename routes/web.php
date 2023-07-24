@@ -51,6 +51,14 @@ Route::post('logged/store', [LoggedController :: class, 'store'])
     -> middleware('auth')
     -> name('logged.store');
 
+Route::get('logged/edit/{id}', [LoggedController :: class, 'edit'])
+    -> middleware('auth')
+    -> name('logged.edit');
+
+Route::put('logged/update/{id}', [LoggedController :: class, 'update'])
+    -> middleware('auth')
+    -> name('logged.update');
+
  // route for logged
 
 Route::get('logged/show/{id}', [LoggedController :: class, 'show'])

@@ -24,4 +24,20 @@ class LoggedController extends Controller
         $project = Project :: create($data);
         return redirect() -> route('logged.show', $project -> id);
     }
+    public function edit($id){
+
+        $project = Project :: find($id);
+        $types = Type :: all();
+
+        return view('logged.edit', compact('project', 'types'));
+    }
+    public function update(Request $request, $id){
+
+        $data = $request -> all();
+
+        $project = Project :: find($id);
+        $project -> update($data);
+
+        return redirect() -> route('guest.index');
+    }
 }

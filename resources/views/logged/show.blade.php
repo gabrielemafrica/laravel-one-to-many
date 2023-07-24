@@ -20,6 +20,7 @@
                 <p class="card-text">{{ $project->data }}</p>
             </div>
         </div>
+        <a href="{{ route('logged.edit', $project->id) }}" class="btn btn-warning text-light">EDIT</a>
 
     </main>
 @endsection
