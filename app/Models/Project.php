@@ -15,7 +15,8 @@ class Project extends Model
         "tecnology",
         "link",
         "repo",
-        "data"
+        "data",
+        "type_id"
     ];
     public function type() {
         return $this -> belongsTo (Type :: class);

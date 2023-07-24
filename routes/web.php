@@ -43,6 +43,14 @@ Route::get('/', [GuestController :: class, 'index'])
 Route::get('guest/message', [GuestController :: class, 'message'])
     -> name("guest.message");
 
+Route::get('logged/create', [LoggedController :: class, 'create'])
+    -> middleware('auth')
+    -> name("logged.create");
+
+Route::post('logged/store', [LoggedController :: class, 'store'])
+    -> middleware('auth')
+    -> name('logged.store');
+
  // route for logged
 
 Route::get('logged/show/{id}', [LoggedController :: class, 'show'])

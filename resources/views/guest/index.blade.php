@@ -12,6 +12,7 @@
                     <h2>NON SEI LOGGATO</h2>
                 @endguest
                 <h1>I MIEI PROGETTI</h1>
+                <a href="{{ route('logged.create') }}" class="btn btn-primary mb-4">CREA NUOVO</a>
             </div>
         </div>
         <div class="row">
