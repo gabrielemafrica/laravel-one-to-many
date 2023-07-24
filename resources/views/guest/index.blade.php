@@ -4,6 +4,13 @@
     <main class="container text-center py-5">
         <div class="row">
             <div class="col-12">
+                @auth
+                    <h2>SEI LOGGATO</h2>
+                    <H3>buongiorno {{ Auth::user()->name }}</H3>
+                @endauth
+                @guest
+                    <h2>NON SEI LOGGATO</h2>
+                @endguest
                 <h1>I MIEI PROGETTI</h1>
             </div>
         </div>
