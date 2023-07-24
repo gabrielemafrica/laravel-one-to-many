@@ -20,7 +20,7 @@
                 <div class="col-3 mb-4">
                     <div class="card text-center">
                         <div class="card-header">
-                            {{ $project->type }}
+                            {{-- {{ $project->type }} --}}
                         </div>
                         <div class="card-body">
                             <h5 class="card-title">{{ $project->nome }}</h5>
