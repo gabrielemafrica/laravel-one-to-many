@@ -59,6 +59,10 @@ Route::put('logged/update/{id}', [LoggedController :: class, 'update'])
     -> middleware('auth')
     -> name('logged.update');
 
+Route::delete('logged/delete/{id}', [LoggedController :: class, 'delete'])
+    -> middleware('auth')
+    -> name('logged.delete');
+
  // route for logged
 
 Route::get('logged/show/{id}', [LoggedController :: class, 'show'])

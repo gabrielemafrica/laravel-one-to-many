@@ -4,7 +4,8 @@
     <main class="container text-center py-5">
         <h1>modifica</h1>
 
-        <form method="POST" action="{{ route('logged.update', $project->id) }}" class="w-50 mx-auto">
+        <form method="POST" action="{{ route('logged.update', $project->id) }}" class="w-50 mx-auto"
+            onsubmit="return confirmEdit()">
 
             @csrf
             @method('PUT')

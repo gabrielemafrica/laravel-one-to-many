@@ -20,7 +20,15 @@
                 <p class="card-text">{{ $project->data }}</p>
             </div>
         </div>
+        <a href="{{ route('guest.index') }}" class="btn btn-info text-light">HOME</a>
         <a href="{{ route('logged.edit', $project->id) }}" class="btn btn-warning text-light">EDIT</a>
+        <a href="{{ route('logged.create') }}" class="btn btn-primary text-light">NEW</a>
+        <form class="d-inline" method="POST" action="{{ route('logged.delete', $project->id) }}"
+            onsubmit="return confirmDelete()">
+            @csrf
+            @method('DELETE')
+            <input class="btn btn-danger" type="submit" value="DELETE">
+        </form>
 
     </main>
 @endsection

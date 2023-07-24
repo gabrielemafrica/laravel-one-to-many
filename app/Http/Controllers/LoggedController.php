@@ -40,4 +40,10 @@ class LoggedController extends Controller
 
         return redirect() -> route('guest.index');
     }
+
+    public function delete($id) {
+        $project = Project :: find($id);
+        $project -> delete();
+        return redirect() -> route('guest.index');
+    }
 }

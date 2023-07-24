@@ -28,6 +28,12 @@
                             <p class="card-text">{{ $project->description }}</p>
                             <a href="{{ route('logged.show', $project->id) }}" class="btn btn-info text-light">SHOW</a>
                             <a href="{{ route('logged.edit', $project->id) }}" class="btn btn-warning text-light">EDIT</a>
+                            <form class="d-inline" method="POST" action="{{ route('logged.delete', $project->id) }}"
+                                onsubmit=" return confirmDelete()">
+                                @csrf
+                                @method('DELETE')
+                                <input class="btn btn-danger" type="submit" value="DELETE">
+                            </form>
                         </div>
                         <div class="card-footer text-body-secondary">
                             {{ $project->data }}
