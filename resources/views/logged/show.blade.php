@@ -11,6 +11,13 @@
                 <h5 class="card-title"> type: </h5>
                 <p class="card-text">{{ $project->type->type }}</p>
                 <h5 class="card-title"> tecnology: </h5>
+                <ul>
+                    @foreach ($project->technology as $technology)
+                        <li>
+                            {{ $technology->name }}
+                        </li>
+                    @endforeach
+                </ul>
                 <p class="card-text">{{ $project->tecnology }}</p>
                 <h5 class="card-title"> link: </h5>
                 <p class="card-text">{{ $project->link }}</p>

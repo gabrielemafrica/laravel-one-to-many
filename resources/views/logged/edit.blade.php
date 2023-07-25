@@ -18,11 +18,6 @@
                 <textarea rows="4" name="descrizione" id="descrizione" class="form-control">{{ $project->descrizione }}</textarea>
             </div>
 
-            {{-- <div class="form-group my-3">
-                <input type="text" name="tecnology" id="tecnology" class="form-control"
-                    value="{{ $project->tecnology }}">
-            </div> --}}
-
             <div class="form-group my-3">
                 <input type="text" name="link" id="link" class="form-control" value="{{ $project->link }}">
             </div>
@@ -44,6 +39,20 @@
                     @endforeach
                 </select>
             </div>
+            @foreach ($technologies as $technology)
+                <div class="form-check mx-auto" style="width: 200px">
+                    <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="technologies[]"
+                        value="{{ $technology->id }}" {{ $project->id == $technology->type_id ? 'selected' : '' }}
+                        @foreach ($technology->projects as $technologyProject)
+                        @if ($project->id == $technologyProject->id)
+                            checked
+                        @endif @endforeach>
+                    <label class="form-check-label" for="flexCheckDefault">
+                        {{ $technology->name }}
+                    </label>
+                </div>
+            @endforeach
+
 
             <div class="form-group my-3">
                 <input type="submit" value="MODIFICA" class="btn btn-primary">

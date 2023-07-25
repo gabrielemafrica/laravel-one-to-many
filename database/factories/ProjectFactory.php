@@ -19,7 +19,6 @@ class ProjectFactory extends Factory
         return [
             "nome" => fake('it_IT') -> catchPhrase(),
             "descrizione" => fake('it_IT') -> paragraph(),
-            // "tecnology" => fake('it_IT') -> randomElement(['Vue.js', 'Vite', 'PHP', 'Laravel', 'JavaScript']),
             "link" => fake('it_IT') -> url(),
             "repo" => fake('it_IT') -> url(),
             "data" => fake('it_IT') -> date()

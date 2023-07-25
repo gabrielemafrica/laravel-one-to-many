@@ -42,6 +42,18 @@
             </div>
 
             <div class="form-group my-3">
+                @foreach ($technologies as $technology)
+                    <div class="form-check mx-auto" style="width: 200px">
+                        <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="technologies[]"
+                            value="{{ $technology->id }}">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            {{ $technology->name }}
+                        </label>
+                    </div>
+                @endforeach
+            </div>
+
+            <div class="form-group my-3">
                 <input type="submit" value="CREA" class="btn btn-primary">
             </div>
         </form>
