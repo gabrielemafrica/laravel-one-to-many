@@ -16,6 +16,10 @@ class TypeTableSeeder extends Seeder
      */
     public function run()
     {
+        Type :: factory() -> count(7) -> create();
+
+        /*
+        // senza factories
         $types = [
             'Sito Web', 'Applicazione Web', 'App Mobile', 'E-commerce', 'Blog', 'AppCheSpacca', 'Progetto di Scuola'
         ];
@@ -25,5 +29,6 @@ class TypeTableSeeder extends Seeder
                 "type" => $type
             ]);
         }
+        */
     }
 }

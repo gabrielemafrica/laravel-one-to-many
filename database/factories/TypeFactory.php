@@ -17,7 +17,7 @@ class TypeFactory extends Factory
     public function definition()
     {
         return [
-            "type" => fake('it_IT') -> randomElement(['Sito Web', 'Applicazione Web', 'App Mobile', 'E-commerce']),
+            "type" => fake('it_IT') -> unique() -> randomElement(['Sito Web', 'Applicazione Web', 'App Mobile', 'E-commerce', 'Blog', 'AppCheSpacca', 'Progetto di Scuola']),
         ];
     }
 }
