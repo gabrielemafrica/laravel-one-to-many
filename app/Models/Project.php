@@ -12,7 +12,7 @@ class Project extends Model
     protected $fillable = [
         "nome",
         "descrizione",
-        "tecnology",
+        // "tecnology",
         "link",
         "repo",
         "data",

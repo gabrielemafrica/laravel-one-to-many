@@ -17,9 +17,9 @@
                 <textarea rows="4" name="descrizione" id="descrizione" class="form-control" placeholder="descrizione"></textarea>
             </div>
 
-            <div class="form-group my-3">
+            {{-- <div class="form-group my-3">
                 <input type="text" name="tecnology" id="tecnology" class="form-control" placeholder="tecnology">
-            </div>
+            </div> --}}
 
             <div class="form-group my-3">
                 <input type="text" name="link" id="link" class="form-control" placeholder="link">
