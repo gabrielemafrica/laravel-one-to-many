@@ -2,7 +2,7 @@
 
 @section('dashboard-content')
     <h1>show technology</h1>
-    <a href="{{ route('logged.create') }}" class="btn btn-primary mb-4">NEW TECHNOLOGIY</a>
+    <a href="{{ route('logged.technologyCreate') }}" class="btn btn-primary mb-4">NEW TECHNOLOGIY</a>
     <div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">
         <div class="card-header">{{ $technology->name }}</div>
         <div class="card-body">
@@ -18,9 +18,8 @@
     </div>
     <div class="container text-center">
         <a href="{{ route('logged.technologyIndex') }}" class="btn btn-info text-light">ALL</a>
-        <a href="{{ route('logged.edit', $project->id) }}" class="btn btn-warning text-light">EDIT</a>
-        <a href="{{ route('logged.create') }}" class="btn btn-primary text-light">NEW</a>
-        <form class="d-inline" method="POST" action="{{ route('logged.delete', $project->id) }}"
+        <a href="{{ route('logged.technologyEdit', $technology->id) }}" class="btn btn-warning text-light">EDIT</a>
+        <form class="d-inline" method="POST" action="{{ route('logged.technologyDelete', $technology->id) }}"
             onsubmit="return confirmDelete()">
             @csrf
             @method('DELETE')

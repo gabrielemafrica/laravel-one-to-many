@@ -12,12 +12,19 @@
                     </div>
                     <div class="card-body">
                         <a href="{{ route('logged.typeShow', $type->id) }}" class="btn btn-info text-light">SHOW</a>
-                        <a href="{{ route('logged.edit', $type->id) }}" class="btn btn-warning text-light">EDIT</a>
-                        <form class="d-inline" method="POST" action="{{ route('logged.delete', $type->id) }}"
+                        <a href="{{ route('logged.typeEdit', $type->id) }}" class="btn btn-warning text-light">EDIT</a>
+                        <form class="my-2" method="POST" action="{{ route('logged.typeDelete', $type->id) }}"
                             onsubmit=" return confirmDelete()">
                             @csrf
                             @method('DELETE')
                             <input class="btn btn-danger" type="submit" value="DELETE">
+                            <select name="type_id" id="type_id">
+                                @foreach ($types as $typeTo)
+                                    <option value="{{ $typeTo->id }}" @disabled($type->id === $typeTo->id)>
+                                        {{ $typeTo->type }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </form>
                     </div>
                 </div>

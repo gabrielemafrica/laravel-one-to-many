@@ -21,6 +21,7 @@
                             <a href="{{ route('logged.technologyShow', $technology->id) }}">
                                 {{ $technology->name }}
                             </a>
+
                         </li>
                     @endforeach
                 </ul>
