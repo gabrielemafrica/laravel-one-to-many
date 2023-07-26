@@ -9,12 +9,18 @@
                 <h5 class="card-title"> descrizione: </h5>
                 <p class="card-text">{{ $project->descrizione }}</p>
                 <h5 class="card-title"> type: </h5>
-                <p class="card-text">{{ $project->type->type }}</p>
-                <h5 class="card-title"> tecnology: </h5>
+                <p class="card-text">
+                    <a href="{{ route('logged.typeShow', $project->type->id) }}">
+                        {{ $project->type->type }}
+                    </a>
+                </p>
+                <h5 class="card-title"> tecnology: {{ count($project->technology) }}</h5>
                 <ul>
                     @foreach ($project->technology as $technology)
                         <li>
-                            {{ $technology->name }}
+                            <a href="{{ route('logged.technologyShow', $technology->id) }}">
+                                {{ $technology->name }}
+                            </a>
                         </li>
                     @endforeach
                 </ul>

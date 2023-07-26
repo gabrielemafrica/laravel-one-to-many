@@ -37,12 +37,15 @@ require __DIR__.'/auth.php';
 
 //mie rotte
 
+//guest index
 Route::get('/', [GuestController :: class, 'index'])
     -> name("guest.index");
 
+//message login
 Route::get('guest/message', [GuestController :: class, 'message'])
     -> name("guest.message");
 
+//CRUD for projects logged
 Route::get('logged/create', [LoggedController :: class, 'create'])
     -> middleware('auth')
     -> name("logged.create");
@@ -63,11 +66,33 @@ Route::delete('logged/delete/{id}', [LoggedController :: class, 'delete'])
     -> middleware('auth')
     -> name('logged.delete');
 
- // route for logged
 
 Route::get('logged/show/{id}', [LoggedController :: class, 'show'])
     -> middleware('auth')
     -> name("logged.show");
+
+//CRUD for types logged
+Route::get('logged/type', [LoggedController :: class, 'typeIndex'])
+    -> middleware('auth')
+    -> name("logged.typeIndex");
+Route::get('logged/type/create', [LoggedController :: class, 'typeCreate'])
+    -> middleware('auth')
+    -> name("logged.typeCreate");
+Route::post('logged/type/store', [LoggedController :: class, 'typeStore'])
+    -> middleware('auth')
+    -> name("logged.typeStore");
+
+Route::get('logged/type/show/{id}', [LoggedController :: class, 'typeShow'])
+    -> middleware('auth')
+    -> name("logged.typeShow");
+
+//CRUD for technologies logged
+Route::get('logged/technology', [LoggedController :: class, 'technologyIndex'])
+    -> middleware('auth')
+    -> name("logged.technologyIndex");
+Route::get('logged/technology/show/{id}', [LoggedController :: class, 'technologyShow'])
+    -> middleware('auth')
+    -> name("logged.technologyShow");
 
 // Route::middleware('auth')
 //     -> name('logged.')

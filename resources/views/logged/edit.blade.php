@@ -33,7 +33,7 @@
             <div class="form-group my-3">
                 <select name="type_id" id="type_id" class="form-select">
                     @foreach ($types as $type)
-                        <option value="{{ $type->id }}" {{ $type->id == $project->type_id ? 'selected' : '' }}>
+                        <option value="{{ $type->id }}" @selected($type->id == $project->type_id) {{-- {{ $type->id == $project->type_id ? 'selected' : '' }} --}}>
                             {{ $type->type }}
                         </option>
                     @endforeach
@@ -41,19 +41,19 @@
             </div>
             @foreach ($technologies as $technology)
                 <div class="form-check mx-auto" style="width: 200px">
-                    <input class="form-check-input" type="checkbox" id="flexCheckDefault" name="technologies[]"
-                        value="{{ $technology->id }}" {{ $project->id == $technology->type_id ? 'selected' : '' }}
+                    <input class="form-check-input" type="checkbox" id="technology{{ $technology->id }}"
+                        name="technologies[]" value="{{ $technology->id }}"
                         @foreach ($technology->projects as $technologyProject)
-                        @if ($project->id == $technologyProject->id)
-                            checked
-                        @endif @endforeach>
-                    <label class="form-check-label" for="flexCheckDefault">
+                            @checked($project->id === $technologyProject->id)
+                            {{-- @if ($project->id === $technologyProject->id)
+                                checked
+                            @endif
+                            --}} @endforeach>
+                    <label class="form-check-label" for="technology{{ $technology->id }}">
                         {{ $technology->name }}
                     </label>
                 </div>
             @endforeach
-
-
             <div class="form-group my-3">
                 <input type="submit" value="MODIFICA" class="btn btn-primary">
             </div>

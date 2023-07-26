@@ -18,8 +18,6 @@ return new class extends Migration
 
             $table -> string("nome", 255);
             $table -> text("descrizione");
-            // $table -> string("type", 64);
-            // $table -> string("tecnology", 64);
             $table->string("link", 255)->unique();
             $table->string("repo", 255)->unique();
             $table -> date("data");

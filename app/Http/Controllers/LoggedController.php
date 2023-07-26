@@ -8,8 +8,10 @@ use App\Models\Project;
 use App\Models\Type;
 use App\Models\Technology;
 
+
 class LoggedController extends Controller
 {
+    // project
     public function show($id) {
 
 
@@ -21,16 +23,21 @@ class LoggedController extends Controller
         $technologies = Technology :: all();
         return view('logged.create', compact('types', 'technologies'));
     }
-
     public function store(Request $request){
         $data = $request -> all();
+        // $data = $request -> validate([
+        //     'nome' => 'required|string|max:255',
+        //     'descrizione' => 'required|string',
+        //     'link' => 'required|exists:types,id',
+        //     'repo' => 'exists:technologies,id',
+        //     'data' => 'exists:technologies,id'
+        // ]);
         $project = Project :: create($data);
         $project -> technology() -> attach($data['technologies']);
 
         return redirect() -> route('logged.show', $project -> id);
     }
     public function edit($id){
-
         $project = Project :: find($id);
         $types = Type :: all();
         $technologies = Technology :: all();
@@ -39,7 +46,6 @@ class LoggedController extends Controller
     public function update(Request $request, $id){
 
         $data = $request -> all();
-
         $project = Project :: find($id);
         $project -> update($data);
 
@@ -54,7 +60,54 @@ class LoggedController extends Controller
 
     public function delete($id) {
         $project = Project :: find($id);
+
+        $project -> technology() -> detach();
+
         $project -> delete();
         return redirect() -> route('guest.index');
+    }
+
+    // types
+    public function typeIndex() {
+
+        $types = Type :: all();
+        return view('logged.type.type-index', compact('types'));
+    }
+    public function typeCreate() {
+        $projects = Project :: all();
+        return view('logged.type.type-create', compact('projects'));
+    }
+
+    public function typeStore(Request $request){
+        $data = $request -> all();
+        $type = Type :: create($data);
+        $projects = Project :: all();
+
+        // assegno il nuovo type ia progetti che voglio
+        foreach ($projects as $project) {
+            if (in_array($project -> id, $data['projects'])) {
+                $project -> type_id = $type -> id;
+                $project -> save();
+            }
+        }
+
+        return redirect() -> route('logged.typeShow', $type -> id);
+    }
+    public function typeShow($id) {
+
+        $type = Type :: find($id);
+        return view('logged.type.type-show', compact('type'));
+    }
+
+    // technology
+    public function technologyIndex() {
+
+        $technologies = Technology :: all();
+        return view('logged.technology.technology-index', compact('technologies'));
+    }
+    public function technologyShow($id) {
+
+        $technology = Technology :: find($id);
+        return view('logged.technology.technology-show', compact('technology'));
     }
 }
