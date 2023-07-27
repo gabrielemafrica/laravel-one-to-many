@@ -66,6 +66,11 @@ Route::delete('logged/delete/{id}', [LoggedController :: class, 'delete'])
     -> middleware('auth')
     -> name('logged.delete');
 
+    // delete img
+Route::delete('logged/deleteImg/{id}', [LoggedController :: class, 'deleteImg'])
+    -> middleware('auth')
+    -> name('logged.deleteImg');
+
 
 Route::get('logged/show/{id}', [LoggedController :: class, 'show'])
     -> middleware('auth')

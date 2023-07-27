@@ -20,6 +20,9 @@
             @foreach ($projects as $project)
                 <div class="col-3 mb-4">
                     <div class="card text-center">
+                        <img class="card-img-top"
+                            src="{{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/images/pippo2.png') }}"
+                            alt="$project->nome">
                         <div class="card-header">
                             {{ $project->type->type }}
                         </div>

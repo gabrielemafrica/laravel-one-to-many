@@ -12,11 +12,11 @@ class Project extends Model
     protected $fillable = [
         "nome",
         "descrizione",
-        // "tecnology",
         "link",
         "repo",
         "data",
-        "type_id"
+        "type_id",
+        "main_picture"
     ];
     public function type() {
         return $this -> belongsTo (Type :: class);

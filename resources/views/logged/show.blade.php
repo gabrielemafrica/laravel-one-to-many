@@ -4,7 +4,15 @@
     <main class="container text-center py-5">
 
         <div class="card border-dark mb-3 mx-auto" style="max-width: 18rem;">
-            <div class="card-header">{{ $project->nome }}</div>
+
+            {{-- <img src=" {{ asset('storage/' . $project->main_picture) }}" alt="{{ $project->nome }}"> --}}
+            <img class="card-img-top"
+                src=" {{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/images/pippo2.png') }}"
+                alt="{{ $project->nome }}">
+
+            <div class="card-header">
+                {{ $project->nome }}
+            </div>
             <div class="card-body">
                 <h5 class="card-title"> descrizione: </h5>
                 <p class="card-text">{{ $project->descrizione }}</p>

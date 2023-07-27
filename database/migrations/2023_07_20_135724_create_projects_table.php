@@ -18,9 +18,10 @@ return new class extends Migration
 
             $table -> string("nome", 255);
             $table -> text("descrizione");
-            $table->string("link", 255)->unique();
-            $table->string("repo", 255)->unique();
+            $table -> string("link", 255)->unique();
+            $table -> string("repo", 255)->unique();
             $table -> date("data");
+            $table -> string('main_picture') -> nullable();
 
             $table->timestamps();
         });

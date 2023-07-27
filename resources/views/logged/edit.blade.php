@@ -3,12 +3,28 @@
 @section('content')
     <main class="container text-center py-5">
         <h1>modifica</h1>
+        {{-- immagine --}}
+        @if ($project->main_picture)
+            <img class="img-fluid" src=" {{ asset('storage/' . $project->main_picture) }}" alt="{{ $project->nome }}">
+            <br>
+            <form method="POST" action="{{ route('logged.deleteImg', $project->id) }}" onsubmit="return confirmDelete()">
+                @csrf
+                @method('DELETE')
+                <input class="btn btn-danger" type="submit" value="DELETE IMG">
+            </form>
+        @endif
 
         <form method="POST" action="{{ route('logged.update', $project->id) }}" class="w-50 mx-auto"
-            onsubmit="return confirmEdit()">
+            enctype="multipart/form-data" onsubmit="return confirmEdit()">
 
             @csrf
             @method('PUT')
+
+            <div class="form-group my-3">
+                <label for="main_picture">Main picture</label>
+                <br>
+                <input type="file" name="main_picture" id="main_picture">
+            </div>
 
             <div class="form-group my-3">
                 <input type="text" name="nome" id="nome" class="form-control" value="{{ $project->nome }}">
