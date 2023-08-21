@@ -13,6 +13,7 @@
                     <div class="card-body">
                         <a href="{{ route('logged.typeShow', $type->id) }}" class="btn btn-info text-light">SHOW</a>
                         <a href="{{ route('logged.typeEdit', $type->id) }}" class="btn btn-warning text-light">EDIT</a>
+                        <div>se elimini, seleziona dove sposti i progetti collegati</div>
                         <form class="my-2" method="POST" action="{{ route('logged.typeDelete', $type->id) }}"
                             onsubmit=" return confirmDelete()">
                             @csrf

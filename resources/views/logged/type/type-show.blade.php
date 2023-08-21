@@ -20,7 +20,7 @@
         <a href="{{ route('logged.typeIndex') }}" class="btn btn-info text-light">ALL</a>
         <a href="{{ route('logged.typeEdit', $type->id) }}" class="btn btn-warning text-light">EDIT</a>
         <a href="{{ route('logged.create') }}" class="btn btn-primary text-light">NEW</a>
-
+        <div>se elimini, seleziona dove sposti i progetti collegati</div>
         <form class="my-2" method="POST" action="{{ route('logged.typeDelete', $type->id) }}"
             onsubmit=" return confirmDelete()">
             @csrf

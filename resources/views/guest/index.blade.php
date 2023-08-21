@@ -23,7 +23,7 @@
                 <div class="col-3 mb-4">
                     <div class="card text-center">
                         <!-- Immagine del progetto (usa immagine predefinita se non c'è immagine principale) -->
-                        <img class="card-img-top"
+                        <img class="card-img-top card-img"
                             src="{{ asset($project->main_picture ? 'storage/' . $project->main_picture : 'storage/images/pippo2.png') }}"
                             alt="{{ $project->nome }}">
                         <div class="card-header">

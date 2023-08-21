@@ -101,10 +101,13 @@ class LoggedController extends Controller
         $project = Project::find($id);
         $img_path = $project->main_picture;
 
+        // Elimina fisicamente l'immagine
+        if ($img_path ) {
+            Storage::delete($img_path);
+        }
+
         $project->main_picture = null;
         $project->save();
-        // Elimina fisicamente l'immagine
-        Storage::delete($img_path);
 
         return back();
     }
